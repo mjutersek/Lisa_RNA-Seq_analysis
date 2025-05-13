@@ -1,0 +1,13 @@
+To run fastqc from command line, use:
+
+fastqc <path_to_folder_with_input_files> -o <path_to_output_folder> -t <number_of_threads_to_use>
+
+Example:
+
+fastqc /DKHF/scratch/mojcaj/data/ -o /DKHF/scratch/mojcaj/fastqc_reports -t 60
+
+To run multiqc on the fastqc output, use:
+
+multiqc <path_to_folder_with_fastqc_output> -o <path_to_output_folder>
+
+
