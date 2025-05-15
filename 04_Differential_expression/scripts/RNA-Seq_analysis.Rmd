@@ -56,12 +56,123 @@ library("pheatmap")
 fp <- file.path("..","input")
 fn <- "featureCounts_all_multimap_counts_clean.txt"
 counts <- read.table(file.path(fp,fn), header=TRUE, sep="\t")
-head(counts, n=c(10,4))
 dim(counts)
+
+colnames(counts) <- gsub("^\\.\\.output\\.", "", colnames(counts))
+colnames(counts) <- gsub("\\.Aligned\\.sortedByCoord\\.out\\.bam$", "", colnames(counts))
+colnames(counts) <- sub("^(([^_]+)_([^_]+)_([^_]+))_.*", "\\1", colnames(counts))
+
+rownames(counts) <- counts$GeneID
+counts <- counts[,-1]
 ```
 
 ## Import phenodata
 
 ```{r}
+fp <- file.path("..","..")
+fn <- "phenodata.txt"
+pheno <- read.table(file.path(fp,fn), header=TRUE, sep="\t")
+```
 
+```{r}
+ind <- match(pheno$sampleID, colnames(counts))
+all(pheno$sampleID == colnames(counts)[ind])
+counts <- counts[,ind]
+all(pheno$sampleID == colnames(counts))
+```
+
+# Define experimental groups
+
+```{r}
+group <- factor(pheno$Biological.group, levels = unique(pheno$Biological.group))
+levels(group)
+```
+
+```{r}
+## Create a DGEList object 
+data <- edgeR::DGEList(counts = counts, group = group)
+data$samples
+
+```
+
+# Filtering counts
+
+```{r}
+keep <- filterByExpr(data, group=group, min.count=100, min.total.count=200)
+data_f <- data[keep, ,keep.lib.sizes=TRUE]
+dim(data$counts)
+dim(data_f$counts)
+
+```
+
+```{r}
+opar <- par()
+par(mfrow=c(1,2), cex = 0.6)
+
+nsamples <- ncol(counts)
+
+
+lcpm <- log(as.matrix(data$counts+1),2)
+plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.8), las=2, main="", xlab="")
+title(main="A. Raw STAR counts", xlab="log2(counts)")
+abline(v=0, lty=3)
+for (i in 2:nsamples){
+  den <- density(lcpm[,i])
+  lines(den$x, den$y, col="red", lwd=2)
+}
+
+lcpm <- log(as.matrix(data_f$counts+1),2)
+plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.2), las=2, main="", xlab="")
+title(main="B. Filtered STAR counts", xlab="log2(counts)")
+abline(v=0, lty=3)
+for (i in 2:nsamples){
+  den <- density(lcpm[,i])
+  lines(den$x, den$y, col="red", lwd=2)
+}
+
+par(opar)
+```
+
+# Calculate TMM normalisation factors
+
+```{r}
+data_f <- calcNormFactors(data_f)
+```
+
+```{r}
+opar <- par()
+par(mfrow=c(1,2), cex = 0.6)
+
+nsamples <- ncol(counts)
+
+
+lcpm <- log(as.matrix(data_f$counts+1),2)
+plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.2), las=2, main="", xlab="")
+title(main="B. Filtered STAR counts", xlab="log2(counts)")
+abline(v=0, lty=3)
+for (i in 2:nsamples){
+  den <- density(lcpm[,i])
+  lines(den$x, den$y, col="red", lwd=2)
+}
+
+
+lcpm <- cpm(data_f$counts, log=TRUE)
+plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.21), las=2, main="", xlab="")
+title(main="A. Normalised STAR counts", xlab="log2(counts)")
+abline(v=0, lty=3)
+for (i in 2:nsamples){
+  den <- density(lcpm[,i])
+  lines(den$x, den$y, col="red", lwd=2)
+}
+
+par(opar)
+```
+
+```{r}
+opar <- par()
+par(mfrow=c(1,3), cex = 0.6)
+boxplot(log(data$counts+1,2), las=2, ylab="log2(counts)", col="red", main="Before filtering")
+boxplot(log(data_f$counts+1,2), las=2, ylab="log2(counts)", col="red", main="After filterinf")
+boxplot(cpm(data_f$counts, log=TRUE), ylab="log2(counts)", col="red", las=2, main="After normalisation")
+par(opar)
 ```
