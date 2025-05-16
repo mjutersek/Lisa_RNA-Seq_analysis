@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/SW5_SRB_128_1.fq.gz, ../Lisa_data/SW5_SRB_128_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 12133951,
+    "num_assigned_fragments": 12133951,
+    "num_frags_with_concordant_consistent_mappings": 11841323,
+    "num_frags_with_inconsistent_or_orphan_mappings": 431658,
+    "strand_mapping_bias": 0.5306110643211067,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 6283137,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 5558186,
+    "SF": 256373,
+    "SR": 175285,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

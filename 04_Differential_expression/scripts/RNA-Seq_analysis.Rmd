@@ -72,6 +72,7 @@ counts <- counts[,-1]
 fp <- file.path("..","..")
 fn <- "phenodata.txt"
 pheno <- read.table(file.path(fp,fn), header=TRUE, sep="\t")
+pheno$Biological.group <- gsub("-", "", pheno$Biological.group)
 ```
 
 ```{r}
@@ -79,6 +80,10 @@ ind <- match(pheno$sampleID, colnames(counts))
 all(pheno$sampleID == colnames(counts)[ind])
 counts <- counts[,ind]
 all(pheno$sampleID == colnames(counts))
+```
+
+```{r}
+write.table(counts, file="../output/raw_counts.txt", sep="\t", quote=TRUE, row.names=TRUE)
 ```
 
 # Define experimental groups
@@ -251,7 +256,7 @@ limma::plotMDS(logcpm,
                col = genotype_col,
                labels=colnames(data_f),
                pch = 16,
-               cex = 0.9,
+               cex = 0.5,
                main = "MDS plot by genotype")
 legend("topright",
        legend = genotypes,
@@ -273,4 +278,84 @@ rownames(design)
 
 ```{r}
 fit <- edgeR::voomLmFit(data_f, design, plot= TRUE)
+```
+
+## Define comparisons
+
+```{r}
+fp <- file.path("..", "input")
+fn <- "comparisons.xlsx"
+
+comparisons = openxlsx::read.xlsx(xlsxFile = file.path(fp,fn),
+                                  sheet = 1,
+                                  startRow = 1,
+                                  colNames = FALSE,
+                                  rowNames = FALSE,
+                                  detectDates = FALSE,
+                                  skipEmptyRows = TRUE,
+                                  skipEmptyCols = TRUE,
+                                  rows = NULL,
+                                  cols = NULL,
+                                  check.names = FALSE,
+                                  sep.names = ".",
+                                  namedRegion = NULL,
+                                  na.strings = "NA",
+                                  fillMergedCells = FALSE
+)
+
+s = paste0(comparisons[, 1], '-', comparisons[, 2])
+contrastMatrix = limma::makeContrasts(contrasts = s,levels=design)
+```
+
+```{r}
+fit2 = contrasts.fit(fit, contrastMatrix)
+fit2 <- eBayes(fit2)
+plotSA(fit2, main = "SA plot")
+```
+
+```{r}
+## Merge logFCs and pAdj values
+
+cnt = 1
+res = NULL
+by = 'GeneID'
+fp = file.path("..", "output")
+
+for (i in colnames(fit2$coefficients) ) {
+  
+  topTn = limma::topTable(fit2, coef = i, number=Inf, sort.by="none")
+  topTn = cbind(rownames(topTn), topTn)
+  colnames(topTn)[1] = 'GeneID'
+  
+  fn = paste0(sprintf("%03.0f", cnt), '_', i, '.txt')
+  
+  data.table::fwrite(topTn, file.path(fp, fn), sep = '\t')
+  
+  
+  colnames(topTn)[2:ncol(topTn)] = paste(colnames(topTn)[2:ncol(topTn)], i, sep = ' | ')
+  
+  if (cnt == 1) {
+    res = topTn
+  } else {
+    res = merge(res, topTn, by = by, all.x =  TRUE, all.y = TRUE)
+  }
+  
+  cnt = cnt + 1
+  
+}
+
+fn = 'limmaResults.xlsx'
+ind_logFC = grep('GeneID|logFC', colnames(res))
+ind_padj = grep('adj.P.Val', colnames(res))
+ind = c(ind_logFC, ind_padj)
+openxlsx::write.xlsx(res[, ind], file = file.path(fp, fn), asTable = TRUE, overwrite = TRUE)
+
+
+## Create a table with added raw counts
+
+counts$GeneID = rownames(counts)
+merge = merge(res[, ind], counts, by = by, all.x = TRUE, all.y = FALSE)
+
+fn = 'limmaResults_withCounts.xlsx'
+openxlsx::write.xlsx(merge, file = file.path(fp, fn), asTable = TRUE, overwrite = TRUE)
 ```

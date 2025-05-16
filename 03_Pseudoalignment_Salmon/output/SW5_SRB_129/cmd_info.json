@@ -1,0 +1,11 @@
+{
+    "salmon_version": "1.10.2",
+    "index": "./index",
+    "libType": "IU",
+    "mates1": "../Lisa_data/SW5_SRB_129_1.fq.gz",
+    "mates2": "../Lisa_data/SW5_SRB_129_2.fq.gz",
+    "validateMappings": [],
+    "numBootstraps": "100",
+    "output": "./output/SW5_SRB_129",
+    "auxDir": "aux_info"
+}

@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/Fla_SRB_123_1.fq.gz, ../Lisa_data/Fla_SRB_123_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 15585111,
+    "num_assigned_fragments": 15585111,
+    "num_frags_with_concordant_consistent_mappings": 15046279,
+    "num_frags_with_inconsistent_or_orphan_mappings": 757617,
+    "strand_mapping_bias": 0.5227149516501721,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 7864915,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 7181364,
+    "SF": 430688,
+    "SR": 326929,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

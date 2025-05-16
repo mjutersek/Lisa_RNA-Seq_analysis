@@ -1,0 +1,11 @@
+{
+    "salmon_version": "1.10.2",
+    "index": "./index",
+    "libType": "IU",
+    "mates1": "../Lisa_data/SW7_SNI_62_MKRN240014581_1.fq.gz",
+    "mates2": "../Lisa_data/SW7_SNI_62_MKRN240014581_2.fq.gz",
+    "validateMappings": [],
+    "numBootstraps": "100",
+    "output": "./output/SW7_SNI_62_MKRN240014581",
+    "auxDir": "aux_info"
+}

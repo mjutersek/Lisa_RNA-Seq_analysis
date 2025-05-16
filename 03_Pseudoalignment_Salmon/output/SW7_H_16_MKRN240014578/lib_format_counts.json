@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/SW7_H_16_MKRN240014578_1.fq.gz, ../Lisa_data/SW7_H_16_MKRN240014578_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 23844751,
+    "num_assigned_fragments": 23844751,
+    "num_frags_with_concordant_consistent_mappings": 23368199,
+    "num_frags_with_inconsistent_or_orphan_mappings": 798619,
+    "strand_mapping_bias": 0.5176454976269246,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 12096443,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 11271756,
+    "SF": 448156,
+    "SR": 350463,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

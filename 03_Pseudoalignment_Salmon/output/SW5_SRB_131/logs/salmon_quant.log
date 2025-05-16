@@ -1,0 +1,143 @@
+[2025-05-14 15:58:45.363] [jointLog] [info] setting maxHashResizeThreads to 128
+[2025-05-14 15:58:45.363] [jointLog] [info] Fragment incompatibility prior below threshold.  Incompatible fragments will be ignored.
+[2025-05-14 15:58:45.363] [jointLog] [info] Usage of --validateMappings implies use of minScoreFraction. Since not explicitly specified, it is being set to 0.65
+[2025-05-14 15:58:45.363] [jointLog] [info] Setting consensusSlack to selective-alignment default of 0.35.
+[2025-05-14 15:58:45.363] [jointLog] [info] parsing read library format
+[2025-05-14 15:58:45.363] [jointLog] [info] There is 1 library.
+[2025-05-14 15:58:45.364] [jointLog] [info] Loading pufferfish index
+[2025-05-14 15:58:45.364] [jointLog] [info] Loading dense pufferfish index.
+[2025-05-14 15:58:56.025] [jointLog] [info] done
+[2025-05-14 15:58:56.088] [jointLog] [info] Index contained 34,701 targets
+[2025-05-14 15:58:56.095] [jointLog] [info] Number of decoys : 13
+[2025-05-14 15:58:56.095] [jointLog] [info] First decoy index : 34,688 
+[2025-05-14 15:59:55.266] [jointLog] [info] Computed 21,522 rich equivalence classes for further processing
+[2025-05-14 15:59:55.266] [jointLog] [info] Counted 11,789,573 total reads in the equivalence classes 
+[2025-05-14 15:59:55.400] [jointLog] [info] Number of mappings discarded because of alignment score : 2,739,826
+[2025-05-14 15:59:55.400] [jointLog] [info] Number of fragments entirely discarded because of alignment score : 1,707,238
+[2025-05-14 15:59:55.400] [jointLog] [info] Number of fragments discarded because they are best-mapped to decoys : 1,319,572
+[2025-05-14 15:59:55.400] [jointLog] [info] Number of fragments discarded because they have only dovetail (discordant) mappings to valid targets : 140,888
+[2025-05-14 15:59:55.400] [jointLog] [info] Mapping rate = 79.1484%
+
+[2025-05-14 15:59:55.400] [jointLog] [info] finished quantifyLibrary()
+[2025-05-14 15:59:55.401] [jointLog] [info] Starting optimizer
+[2025-05-14 15:59:55.414] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2025-05-14 15:59:55.417] [jointLog] [info] iteration = 0 | max rel diff. = 20441.3
+[2025-05-14 15:59:55.268] [fileLog] [info] 
+At end of round 0
+==================
+Observed 14895527 total fragments (14895527 in most recent round)
+
+[2025-05-14 15:59:55.690] [jointLog] [info] iteration = 100 | max rel diff. = 0.057269
+[2025-05-14 15:59:55.726] [jointLog] [info] iteration = 118 | max rel diff. = 0.00731529
+[2025-05-14 15:59:55.727] [jointLog] [info] Finished optimizer
+[2025-05-14 15:59:55.727] [jointLog] [info] writing output 
+
+[2025-05-14 15:59:55.791] [jointLog] [info] Starting Bootstrapping
+[2025-05-14 15:59:55.794] [jointLog] [info] Will draw 100 bootstrap samples
+[2025-05-14 15:59:55.794] [jointLog] [info] Optimizing over 21,522 equivalence classes
+[2025-05-14 15:59:55.795] [jointLog] [info] Marked 0 weighted equivalence classes as degenerate
+[2025-05-14 15:59:57.442] [jointLog] [info] wrote 1 bootstraps
+[2025-05-14 15:59:57.480] [jointLog] [info] wrote 2 bootstraps
+[2025-05-14 15:59:57.618] [jointLog] [info] wrote 3 bootstraps
+[2025-05-14 15:59:57.796] [jointLog] [info] wrote 4 bootstraps
+[2025-05-14 15:59:57.899] [jointLog] [info] wrote 5 bootstraps
+[2025-05-14 15:59:58.298] [jointLog] [info] wrote 6 bootstraps
+[2025-05-14 15:59:58.310] [jointLog] [info] wrote 7 bootstraps
+[2025-05-14 15:59:58.330] [jointLog] [info] wrote 8 bootstraps
+[2025-05-14 15:59:58.343] [jointLog] [info] wrote 9 bootstraps
+[2025-05-14 15:59:58.368] [jointLog] [info] wrote 10 bootstraps
+[2025-05-14 15:59:58.379] [jointLog] [info] wrote 11 bootstraps
+[2025-05-14 15:59:58.395] [jointLog] [info] wrote 12 bootstraps
+[2025-05-14 15:59:58.408] [jointLog] [info] wrote 13 bootstraps
+[2025-05-14 15:59:58.420] [jointLog] [info] wrote 14 bootstraps
+[2025-05-14 15:59:58.432] [jointLog] [info] wrote 15 bootstraps
+[2025-05-14 15:59:58.444] [jointLog] [info] wrote 16 bootstraps
+[2025-05-14 15:59:58.458] [jointLog] [info] wrote 17 bootstraps
+[2025-05-14 15:59:58.470] [jointLog] [info] wrote 18 bootstraps
+[2025-05-14 15:59:58.484] [jointLog] [info] wrote 19 bootstraps
+[2025-05-14 15:59:58.496] [jointLog] [info] wrote 20 bootstraps
+[2025-05-14 15:59:58.508] [jointLog] [info] wrote 21 bootstraps
+[2025-05-14 15:59:58.523] [jointLog] [info] wrote 22 bootstraps
+[2025-05-14 15:59:58.534] [jointLog] [info] wrote 23 bootstraps
+[2025-05-14 15:59:58.548] [jointLog] [info] wrote 24 bootstraps
+[2025-05-14 15:59:58.562] [jointLog] [info] wrote 25 bootstraps
+[2025-05-14 15:59:58.576] [jointLog] [info] wrote 26 bootstraps
+[2025-05-14 15:59:58.591] [jointLog] [info] wrote 27 bootstraps
+[2025-05-14 15:59:58.603] [jointLog] [info] wrote 28 bootstraps
+[2025-05-14 15:59:58.615] [jointLog] [info] wrote 29 bootstraps
+[2025-05-14 15:59:58.628] [jointLog] [info] wrote 30 bootstraps
+[2025-05-14 15:59:58.642] [jointLog] [info] wrote 31 bootstraps
+[2025-05-14 15:59:58.656] [jointLog] [info] wrote 32 bootstraps
+[2025-05-14 15:59:58.670] [jointLog] [info] wrote 33 bootstraps
+[2025-05-14 15:59:58.681] [jointLog] [info] wrote 34 bootstraps
+[2025-05-14 15:59:58.695] [jointLog] [info] wrote 35 bootstraps
+[2025-05-14 15:59:58.710] [jointLog] [info] wrote 36 bootstraps
+[2025-05-14 15:59:58.724] [jointLog] [info] wrote 37 bootstraps
+[2025-05-14 15:59:58.737] [jointLog] [info] wrote 38 bootstraps
+[2025-05-14 15:59:58.753] [jointLog] [info] wrote 39 bootstraps
+[2025-05-14 15:59:58.770] [jointLog] [info] wrote 40 bootstraps
+[2025-05-14 15:59:58.784] [jointLog] [info] wrote 41 bootstraps
+[2025-05-14 15:59:58.799] [jointLog] [info] wrote 42 bootstraps
+[2025-05-14 15:59:58.817] [jointLog] [info] wrote 43 bootstraps
+[2025-05-14 15:59:58.832] [jointLog] [info] wrote 44 bootstraps
+[2025-05-14 15:59:58.846] [jointLog] [info] wrote 45 bootstraps
+[2025-05-14 15:59:58.864] [jointLog] [info] wrote 46 bootstraps
+[2025-05-14 15:59:58.879] [jointLog] [info] wrote 47 bootstraps
+[2025-05-14 15:59:58.897] [jointLog] [info] wrote 48 bootstraps
+[2025-05-14 15:59:58.914] [jointLog] [info] wrote 49 bootstraps
+[2025-05-14 15:59:58.931] [jointLog] [info] wrote 50 bootstraps
+[2025-05-14 15:59:58.945] [jointLog] [info] wrote 51 bootstraps
+[2025-05-14 15:59:58.962] [jointLog] [info] wrote 52 bootstraps
+[2025-05-14 15:59:58.977] [jointLog] [info] wrote 53 bootstraps
+[2025-05-14 15:59:58.991] [jointLog] [info] wrote 54 bootstraps
+[2025-05-14 15:59:59.013] [jointLog] [info] wrote 55 bootstraps
+[2025-05-14 15:59:59.032] [jointLog] [info] wrote 56 bootstraps
+[2025-05-14 15:59:59.048] [jointLog] [info] wrote 57 bootstraps
+[2025-05-14 15:59:59.070] [jointLog] [info] wrote 58 bootstraps
+[2025-05-14 15:59:59.092] [jointLog] [info] wrote 59 bootstraps
+[2025-05-14 15:59:59.114] [jointLog] [info] wrote 60 bootstraps
+[2025-05-14 15:59:59.136] [jointLog] [info] wrote 61 bootstraps
+[2025-05-14 15:59:59.157] [jointLog] [info] wrote 62 bootstraps
+[2025-05-14 15:59:59.178] [jointLog] [info] wrote 63 bootstraps
+[2025-05-14 15:59:59.199] [jointLog] [info] wrote 64 bootstraps
+[2025-05-14 15:59:59.221] [jointLog] [info] wrote 65 bootstraps
+[2025-05-14 15:59:59.243] [jointLog] [info] wrote 66 bootstraps
+[2025-05-14 15:59:59.264] [jointLog] [info] wrote 67 bootstraps
+[2025-05-14 15:59:59.286] [jointLog] [info] wrote 68 bootstraps
+[2025-05-14 15:59:59.307] [jointLog] [info] wrote 69 bootstraps
+[2025-05-14 15:59:59.330] [jointLog] [info] wrote 70 bootstraps
+[2025-05-14 15:59:59.352] [jointLog] [info] wrote 71 bootstraps
+[2025-05-14 15:59:59.374] [jointLog] [info] wrote 72 bootstraps
+[2025-05-14 15:59:59.396] [jointLog] [info] wrote 73 bootstraps
+[2025-05-14 15:59:59.418] [jointLog] [info] wrote 74 bootstraps
+[2025-05-14 15:59:59.439] [jointLog] [info] wrote 75 bootstraps
+[2025-05-14 15:59:59.460] [jointLog] [info] wrote 76 bootstraps
+[2025-05-14 15:59:59.483] [jointLog] [info] wrote 77 bootstraps
+[2025-05-14 15:59:59.504] [jointLog] [info] wrote 78 bootstraps
+[2025-05-14 15:59:59.528] [jointLog] [info] wrote 79 bootstraps
+[2025-05-14 15:59:59.549] [jointLog] [info] wrote 80 bootstraps
+[2025-05-14 15:59:59.572] [jointLog] [info] wrote 81 bootstraps
+[2025-05-14 15:59:59.594] [jointLog] [info] wrote 82 bootstraps
+[2025-05-14 15:59:59.615] [jointLog] [info] wrote 83 bootstraps
+[2025-05-14 15:59:59.637] [jointLog] [info] wrote 84 bootstraps
+[2025-05-14 15:59:59.658] [jointLog] [info] wrote 85 bootstraps
+[2025-05-14 15:59:59.680] [jointLog] [info] wrote 86 bootstraps
+[2025-05-14 15:59:59.703] [jointLog] [info] wrote 87 bootstraps
+[2025-05-14 15:59:59.725] [jointLog] [info] wrote 88 bootstraps
+[2025-05-14 15:59:59.747] [jointLog] [info] wrote 89 bootstraps
+[2025-05-14 15:59:59.768] [jointLog] [info] wrote 90 bootstraps
+[2025-05-14 15:59:59.791] [jointLog] [info] wrote 91 bootstraps
+[2025-05-14 15:59:59.812] [jointLog] [info] wrote 92 bootstraps
+[2025-05-14 15:59:59.834] [jointLog] [info] wrote 93 bootstraps
+[2025-05-14 15:59:59.856] [jointLog] [info] wrote 94 bootstraps
+[2025-05-14 15:59:59.877] [jointLog] [info] wrote 95 bootstraps
+[2025-05-14 15:59:59.901] [jointLog] [info] wrote 96 bootstraps
+[2025-05-14 15:59:59.925] [jointLog] [info] wrote 97 bootstraps
+[2025-05-14 15:59:59.946] [jointLog] [info] wrote 98 bootstraps
+[2025-05-14 15:59:59.968] [jointLog] [info] wrote 99 bootstraps
+[2025-05-14 15:59:59.989] [jointLog] [info] wrote 100 bootstraps
+[2025-05-14 15:59:59.993] [jointLog] [info] Finished Bootstrapping
+[2025-05-14 15:59:59.993] [jointLog] [warning] NOTE: Read Lib [[ ../Lisa_data/SW5_SRB_131_1.fq.gz, ../Lisa_data/SW5_SRB_131_2.fq.gz]] :
+
+Detected a *potential* strand bias > 1% in an unstranded protocol check the file: ./output/SW5_SRB_131/lib_format_counts.json for details
+

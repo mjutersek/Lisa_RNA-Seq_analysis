@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/SW57_SRB_139_1.fq.gz, ../Lisa_data/SW57_SRB_139_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 14768553,
+    "num_assigned_fragments": 14768553,
+    "num_frags_with_concordant_consistent_mappings": 14489755,
+    "num_frags_with_inconsistent_or_orphan_mappings": 455804,
+    "strand_mapping_bias": 0.5571301930225874,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 8072680,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 6417075,
+    "SF": 262428,
+    "SR": 193376,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

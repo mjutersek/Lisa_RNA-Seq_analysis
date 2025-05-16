@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/Fla_SNI_49_1.fq.gz, ../Lisa_data/Fla_SNI_49_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 21059704,
+    "num_assigned_fragments": 21059704,
+    "num_frags_with_concordant_consistent_mappings": 20602259,
+    "num_frags_with_inconsistent_or_orphan_mappings": 692897,
+    "strand_mapping_bias": 0.5239076938116349,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 10793682,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 9808577,
+    "SF": 392056,
+    "SR": 300841,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

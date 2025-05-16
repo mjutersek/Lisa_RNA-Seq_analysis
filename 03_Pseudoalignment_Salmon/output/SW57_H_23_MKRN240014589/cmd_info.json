@@ -1,0 +1,11 @@
+{
+    "salmon_version": "1.10.2",
+    "index": "./index",
+    "libType": "IU",
+    "mates1": "../Lisa_data/SW57_H_23_MKRN240014589_1.fq.gz",
+    "mates2": "../Lisa_data/SW57_H_23_MKRN240014589_2.fq.gz",
+    "validateMappings": [],
+    "numBootstraps": "100",
+    "output": "./output/SW57_H_23_MKRN240014589",
+    "auxDir": "aux_info"
+}

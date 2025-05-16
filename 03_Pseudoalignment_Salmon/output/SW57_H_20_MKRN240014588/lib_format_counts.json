@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/SW57_H_20_MKRN240014588_1.fq.gz, ../Lisa_data/SW57_H_20_MKRN240014588_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 23136823,
+    "num_assigned_fragments": 23136823,
+    "num_frags_with_concordant_consistent_mappings": 22792561,
+    "num_frags_with_inconsistent_or_orphan_mappings": 611773,
+    "strand_mapping_bias": 0.5243063734698352,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 11950285,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 10842276,
+    "SF": 359066,
+    "SR": 252707,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

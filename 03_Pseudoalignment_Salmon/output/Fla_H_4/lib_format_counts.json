@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/Fla_H_4_1.fq.gz, ../Lisa_data/Fla_H_4_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 22791373,
+    "num_assigned_fragments": 22791373,
+    "num_frags_with_concordant_consistent_mappings": 22397847,
+    "num_frags_with_inconsistent_or_orphan_mappings": 687136,
+    "strand_mapping_bias": 0.5370764431063396,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 12029356,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 10368491,
+    "SF": 416575,
+    "SR": 270561,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

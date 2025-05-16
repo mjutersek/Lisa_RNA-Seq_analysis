@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/SW5_H_36_1.fq.gz, ../Lisa_data/SW5_H_36_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 3416945,
+    "num_assigned_fragments": 3416945,
+    "num_frags_with_concordant_consistent_mappings": 3344570,
+    "num_frags_with_inconsistent_or_orphan_mappings": 116671,
+    "strand_mapping_bias": 0.5308667481918453,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 1775521,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 1569049,
+    "SF": 69119,
+    "SR": 47552,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

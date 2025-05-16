@@ -1,0 +1,22 @@
+{
+    "read_files": "[ ../Lisa_data/SW57_SNI_93_1.fq.gz, ../Lisa_data/SW57_SNI_93_2.fq.gz]",
+    "expected_format": "IU",
+    "compatible_fragment_ratio": 1.0,
+    "num_compatible_fragments": 11767471,
+    "num_assigned_fragments": 11767471,
+    "num_frags_with_concordant_consistent_mappings": 11464982,
+    "num_frags_with_inconsistent_or_orphan_mappings": 447523,
+    "strand_mapping_bias": 0.5249204054572436,
+    "MSF": 0,
+    "OSF": 0,
+    "ISF": 6018203,
+    "MSR": 0,
+    "OSR": 0,
+    "ISR": 5446779,
+    "SF": 248300,
+    "SR": 199223,
+    "MU": 0,
+    "OU": 0,
+    "IU": 0,
+    "U": 0
+}

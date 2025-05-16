@@ -1,0 +1,11 @@
+{
+    "salmon_version": "1.10.2",
+    "index": "./index",
+    "libType": "IU",
+    "mates1": "../Lisa_data/Fla_H_6_1.fq.gz",
+    "mates2": "../Lisa_data/Fla_H_6_2.fq.gz",
+    "validateMappings": [],
+    "numBootstraps": "100",
+    "output": "./output/Fla_H_6",
+    "auxDir": "aux_info"
+}
