@@ -10,4 +10,6 @@ To run multiqc on the fastqc output, use:
 
 multiqc <path_to_folder_with_fastqc_output> -o <path_to_output_folder>
 
+Example:
 
+multiqc /DKHF/scratch/mojcaj/fastqc_reports -o /DKHF/scratch/mojcaj/multiqc_reports

@@ -95,6 +95,34 @@ data$samples
 
 ```
 
+```{r}
+# Define the colours of groups for plotting
+genotype_colors <- c(
+  "FLA" = "#a6cee3",
+  "SW5" = "#1f78b4",
+  "SW5-7" = "#b2df8a",
+  "SW7" = "#33a02c")
+infection_colors <- c(
+  "H" = "#66c2a5",
+  "SNI" = "#fc8d62",
+  "SRB" = "#8da0cb"
+)
+pheno$temperature <- factor(pheno$temperature, levels = c(22, 32))
+temperature_colors <- c(
+  "22" = "blue",
+  "32" = "red"
+)
+
+genotype_col <- genotype_colors[pheno$Genotype]
+pheno$infection <- trimws(pheno$infection, which = "right")
+infection_col <- infection_colors[pheno$infection]
+temperature_col <- temperature_colors[pheno$temperature]
+
+genotypes <- levels(as.factor(pheno$Genotype))
+infection <- levels(as.factor(pheno$infection))
+temperature <- levels(as.factor(pheno$temperature))
+```
+
 # Filtering counts
 
 ```{r}
@@ -113,21 +141,21 @@ nsamples <- ncol(counts)
 
 
 lcpm <- log(as.matrix(data$counts+1),2)
-plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.8), las=2, main="", xlab="")
+plot(density(lcpm), col="black", lwd=2, ylim=c(0,0.8), las=2, main="", xlab="")
 title(main="A. Raw STAR counts", xlab="log2(counts)")
 abline(v=0, lty=3)
 for (i in 2:nsamples){
   den <- density(lcpm[,i])
-  lines(den$x, den$y, col="red", lwd=2)
+  lines(den$x, den$y, col=genotype_col[i], lwd=2)
 }
 
 lcpm <- log(as.matrix(data_f$counts+1),2)
-plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.2), las=2, main="", xlab="")
+plot(density(lcpm), col="black", lwd=2, ylim=c(0,0.2), las=2, main="", xlab="")
 title(main="B. Filtered STAR counts", xlab="log2(counts)")
 abline(v=0, lty=3)
 for (i in 2:nsamples){
   den <- density(lcpm[,i])
-  lines(den$x, den$y, col="red", lwd=2)
+  lines(den$x, den$y, col=genotype_col[i], lwd=2)
 }
 
 par(opar)
@@ -147,22 +175,22 @@ nsamples <- ncol(counts)
 
 
 lcpm <- log(as.matrix(data_f$counts+1),2)
-plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.2), las=2, main="", xlab="")
+plot(density(lcpm), col="black", lwd=2, ylim=c(0,0.2), las=2, main="", xlab="")
 title(main="B. Filtered STAR counts", xlab="log2(counts)")
 abline(v=0, lty=3)
 for (i in 2:nsamples){
   den <- density(lcpm[,i])
-  lines(den$x, den$y, col="red", lwd=2)
+  lines(den$x, den$y, col=genotype_col[i], lwd=2)
 }
 
 
 lcpm <- cpm(data_f$counts, log=TRUE)
-plot(density(lcpm), col="red", lwd=2, ylim=c(0,0.21), las=2, main="", xlab="")
+plot(density(lcpm), col="black", lwd=2, ylim=c(0,0.21), las=2, main="", xlab="")
 title(main="A. Normalised STAR counts", xlab="log2(counts)")
 abline(v=0, lty=3)
 for (i in 2:nsamples){
   den <- density(lcpm[,i])
-  lines(den$x, den$y, col="red", lwd=2)
+  lines(den$x, den$y, col=genotype_col[i], lwd=2)
 }
 
 par(opar)
@@ -171,8 +199,78 @@ par(opar)
 ```{r}
 opar <- par()
 par(mfrow=c(1,3), cex = 0.6)
-boxplot(log(data$counts+1,2), las=2, ylab="log2(counts)", col="red", main="Before filtering")
-boxplot(log(data_f$counts+1,2), las=2, ylab="log2(counts)", col="red", main="After filterinf")
-boxplot(cpm(data_f$counts, log=TRUE), ylab="log2(counts)", col="red", las=2, main="After normalisation")
+boxplot(log(data$counts+1,2), las=2, ylab="log2(counts)", col=genotype_col, main="Before filtering")
+boxplot(log(data_f$counts+1,2), las=2, ylab="log2(counts)", col=genotype_col, main="After filterinf")
+boxplot(cpm(data_f$counts, log=TRUE), ylab="log2(counts)", col=genotype_col, las=2, main="After normalisation")
 par(opar)
+```
+
+# PCA plots
+
+```{r}
+logcpm = cpm(data_f, normalized.lib.sizes = TRUE, log = TRUE, prior.count = 1)
+pca <- prcomp(t(logcpm))
+```
+
+```{r}
+plot(pca$x[, 1:2], pch=20, cex=3, main="PCA")
+```
+
+```{r}
+plot(pca$x[, 1:2], col=genotype_col, pch=20, cex=3, main="PCA by genotype")
+legend("topright", legend=genotypes, bty = "n", pch = 20, col=genotype_colors, pt.cex = 3)
+```
+
+```{r}
+plot(pca$x[, 1:2], col=infection_col, pch=20, cex=3, main="PCA by infection type")
+legend("topright", legend=infection, bty = "n", pch = 20, col=infection_colors, pt.cex = 3)
+```
+
+```{r}
+plot(pca$x[, 1:2], col=temperature_col, pch=20, cex=3, main="PCA by temperature")
+legend("topright", legend=temperature, bty = "n", pch = 20, col=temperature_colors, pt.cex = 3)
+```
+
+```{r}
+limma::plotMDS(logcpm,
+               col = genotype_col,
+               pch = 16,
+               cex = 2,
+               main = "MDS plot by genotype")
+legend("topright",
+       legend = genotypes,
+       bty = "n",
+       pch = 16,
+       col = genotype_colors,
+       ncol = 2,
+       pt.cex = 2)
+```
+
+```{r}
+limma::plotMDS(logcpm,
+               col = genotype_col,
+               labels=colnames(data_f),
+               pch = 16,
+               cex = 0.9,
+               main = "MDS plot by genotype")
+legend("topright",
+       legend = genotypes,
+       bty = "n",
+       pch = 16,
+       col = genotype_colors,
+       ncol = 2,
+       pt.cex = 2)
+```
+
+# DE analysis
+
+```{r}
+design <- model.matrix(~0+group)
+colnames(design) <- levels(group)
+rownames(design) <- pheno$sampleID
+rownames(design)
+```
+
+```{r}
+fit <- edgeR::voomLmFit(data_f, design, plot= TRUE)
 ```
